@@ -2,8 +2,6 @@ const express = require('express')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 const router = express.Router()
-const userSchema = require('../models/User')
-const authorize = require('../middlewares/auth')
 const { check, validationResult } = require('express-validator')
 
 router.post('/validate-email', (req, res, next) => {
@@ -11,9 +9,9 @@ router.post('/validate-email', (req, res, next) => {
     res.status(200).json({result: 'ok'})
   } else {
     if(req.body.email == 'admin@admin.com') {
-      res.status(403).json({result: 'incorrect'})
+      res.status(200).json({result: 'incorrect'})
     } else {
-      res.status(403).json({result: 'disable'})
+      res.status(200).json({result: 'disable'})
     }
   }
 })

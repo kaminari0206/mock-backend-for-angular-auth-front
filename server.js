@@ -3,7 +3,6 @@ const cors = require('cors')
 const bodyParser = require('body-parser')
 // Express APIs
 const api = require('./routes/auth.routes')
-
 // Express settings
 const app = express()
 app.use(bodyParser.json())
